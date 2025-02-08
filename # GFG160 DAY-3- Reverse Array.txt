@@ -1,0 +1,35 @@
+# GFG160 DAY-3:-Reverse Array
+
+// User function Template for Java
+
+class Solution {
+    public static int getSecondLargest(int[] arr) {
+        int first = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+        int n = arr.length;
+        if(n<2){
+            return -1;
+        }
+        
+        for(int i = 0; i<n; i++){
+            if(arr[i]>first){
+                second = first;
+                first = arr[i];
+            }
+            
+            else if(arr[i]>second && arr[i]!= first){
+                second =arr[i];
+            }
+            
+        }
+        
+        return (second == Integer.MIN_VALUE) ? -1 : second;
+    }
+    
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int [] arr = new int[a];
+        System.out.println(getSecondLargest(arr));
+    }
+}
