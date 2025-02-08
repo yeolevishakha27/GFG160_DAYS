@@ -1,0 +1,28 @@
+#GFG160-Day-8-Buy & Sell Stock Max One Transaction Allow 
+// User function Template for Java
+
+class Solution {
+    public static int maximumProfit(int prices[]) {
+        int Maxprofit = 0;
+        int  buyprice = Integer.MAX_VALUE;
+        for(int i =0; i< prices.length; i++){
+            if(prices[i]>buyprice){
+                int profit = prices[i]-buyprice;
+                Maxprofit = Math.max(profit,Maxprofit);
+                
+            }
+            else{
+                buyprice = prices[i];
+            }
+        }
+        return Maxprofit;
+    }
+    
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int prices[] = new int [a];
+        System.out.println(maximumProfit(prices));
+        
+    }
+}
