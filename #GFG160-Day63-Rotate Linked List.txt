@@ -1,0 +1,40 @@
+#GFG160-Day63-Rotate Linked List
+class Solution {
+    public Node rotate(Node head, int k) {
+        // add code here
+        if(head == null || head.next == null || k==0){
+            return head;
+        }
+        
+        //length find
+        Node current = head;
+        int length = 1;
+        while(current.next != null){
+            current = current.next;
+            length++;
+        }
+        // k>=length
+        k = k%length;
+        if(k==0)return head;
+        
+        //make list circular
+        current = head;
+        for(int i = 1; i<k; i++){
+            current = current.next;
+        }
+        
+        Node newHead = current.next;
+        current.next = null;
+        
+        Node temp = newHead;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        
+        temp.next = head;
+        
+        return newHead;
+        
+        
+    }
+}
