@@ -1,0 +1,16 @@
+#GFG160-Day93-Min Cost Climbing Stairs:
+class Solution {
+    static int minCostClimbingStairs(int[] cost) {
+        // Write your code here
+        int n = cost.length;
+        if(n==2)return Math.min(cost[0],cost[1]);
+        int first = cost[0];
+        int second = cost[1];
+            for(int i =2;i<n;i++){
+              int curr = cost[i]+Math.min(first,second);
+              first = second;
+              second = curr;
+            }
+            return Math.min(first,second); 
+        }
+    }
